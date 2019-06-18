@@ -16,6 +16,13 @@ $ ./disk-monitor.sh -t <dingtalk_token>
 $ ./disk-monitor.sh -t <dingtalk_token> -n <send_when_normal>
 ```
 
+**Note**
+
+The Ubuntu system may encounter errors `awk: line 2: function strtonum never defined`,Please install:
+```
+$ sudo apt-get install gawk
+```
+
 #### use with crontab
 
 ```
