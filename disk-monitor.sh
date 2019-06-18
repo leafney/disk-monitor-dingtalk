@@ -16,7 +16,7 @@ fi
 
 # disk monitor
 # result=$(df -Ph | grep -v Filesystem | awk '{print $5,$6}' | awk -F "%" '{if($1>=10) {print $2,$1"%"}}')
-result=$(df -Ph | grep -v Filesystem | awk '{print $5,$6}' | awk -F "%" '{if($1>=strtonum("'${max_percent}'")){print $2,$1"%"}}')
+result=$(df -Ph | grep -v Filesystem | grep -v 文件系统 | awk '{print $5,$6}' | awk -F "%" '{if($1>=strtonum("'${max_percent}'")){print $2,$1"%"}}')
 echo $result
 # 挂载点 已用% / 13% /boot 17%
 

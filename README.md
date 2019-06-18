@@ -1,6 +1,6 @@
 ### disk-monitor
 
-#### # parameters
+#### parameters
 
 * `dingtalk_token` -- **`Required`** dingtalk token
 * `max_percent` -- threshold percent,default `80%`
