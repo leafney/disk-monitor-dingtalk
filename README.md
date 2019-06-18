@@ -25,6 +25,6 @@ $ crontab -l
 
 #### demo
 
-![](test/test1.png)
+![](demo.png)
 
-* [监控磁盘空间使用率并发送钉钉提醒 | IT范儿](https://www.itfanr.cc/2019/06/18/disk-monitor-send-dingtalk/)
+Article: [监控磁盘空间使用率并发送钉钉提醒 | IT范儿](https://www.itfanr.cc/2019/06/18/disk-monitor-send-dingtalk/)
