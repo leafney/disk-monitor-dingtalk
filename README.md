@@ -20,7 +20,7 @@ $ ./disk-monitor.sh -t <dingtalk_token> -n <send_when_normal>
 
 ```
 $ crontab -l
-* * * * * /home/tiger/disk-monitor.sh -t <dingtalk_token> > /dev/null
+* * * * * /home/tiger/disk-monitor.sh -t <dingtalk_token> > /dev/null 2>&1 &
 ```
 
 #### demo

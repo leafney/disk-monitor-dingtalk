@@ -50,9 +50,9 @@ result=$(df -Ph | grep -v Filesystem | grep -v 文件系统 | awk '{print $5,$6}
 echo $result
 # 挂载点 已用% / 13% /boot 17%
 
-if [ "$result" ==  "" ]; then 
+if [ "${result}" = "" ]; then
     echo '[info] normal.'
-    if $send_when_normal ; then
+    if ${send_when_normal} ; then
         cont='主机 ['${host}']\n磁盘空间正常，使用率未超过'${max_percent}'%。'
         # echo $cont
         curl 'https://oapi.dingtalk.com/robot/send?access_token='${dingtalk_token} -H 'Content-Type: application/json' -d ' {"msgtype": "text", "text": {"content": "'"${cont}"'"}}'
