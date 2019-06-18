@@ -2,16 +2,46 @@
 set -e
 
 # parameters
-dingtalk_token=${1:-''}
-max_percent=${2:-80}
-custom_host=${3:-''}
-send_when_normal=${4:-false}
+dingtalk_token=''
+max_percent=80
+custom_host=''
+send_when_normal=false
+
+# use getopts get param
+while getopts ":t:p:h:n:" opt; do
+    case $opt in
+        t)
+            dingtalk_token=$OPTARG
+            ;;
+        p)
+            max_percent=$OPTARG
+            ;;
+        h)
+            custom_host=$OPTARG
+            ;;
+        n)
+            send_when_normal=$OPTARG
+            ;;
+        ?)
+            echo "unkonw argument:$OPTARG"
+            exit 1
+            ;;
+    esac
+done
 
 # check parameters
 host=${custom_host:-"$HOSTNAME"}
 if [ "${dingtalk_token}" = "" ]; then
     echo '[error] dingtalk token empty.'
     exit 1
+fi
+
+if [ ${max_percent} -lt 0 ]; then
+    max_percent=0
+fi
+
+if [ ${max_percent} -gt 100 ]; then
+    max_percent=100
 fi
 
 # disk monitor
